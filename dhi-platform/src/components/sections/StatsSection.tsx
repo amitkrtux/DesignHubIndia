@@ -26,7 +26,7 @@ export function StatsSection() {
               <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-none mb-2">
                 {s.value}
               </span>
-              <span className="text-[10px] sm:text-xs uppercase tracking-widest text-white/35 font-medium">
+              <span className="text-[10px] sm:text-xs uppercase tracking-widest text-white/60 font-medium">
                 {s.label}
               </span>
             </motion.div>

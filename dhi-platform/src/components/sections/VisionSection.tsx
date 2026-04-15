@@ -18,7 +18,7 @@ export function VisionSection() {
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#60a5fa] mb-8">
               Vision 2026
             </p>
-            <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-light leading-snug text-white/85 mb-8">
+            <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-light leading-snug text-white mb-8">
               "To become the{" "}
               <span className="font-semibold text-white">
                 heartbeat of SAP&apos;s global design culture
@@ -58,12 +58,12 @@ export function VisionSection() {
                 transition={{ duration: 0.45, delay: 0.1 * i }}
                 className="flex gap-5 py-6 border-b border-white/6 last:border-0 hover:bg-white/[0.02] rounded-xl px-4 -mx-4 transition-colors"
               >
-                <span className="text-xs font-mono text-white/20 pt-0.5 w-6 flex-shrink-0">{item.num}</span>
+                <span className="text-xs font-mono text-white/50 pt-0.5 w-6 flex-shrink-0">{item.num}</span>
                 <div>
                   <h3 className="text-base font-bold mb-1.5" style={{ color: item.color }}>
                     {item.title}
                   </h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{item.body}</p>
+                  <p className="text-sm text-white/70 leading-relaxed">{item.body}</p>
                 </div>
               </motion.div>
             ))}

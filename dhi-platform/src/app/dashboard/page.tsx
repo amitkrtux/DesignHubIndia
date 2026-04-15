@@ -71,9 +71,9 @@ export default function DashboardPage() {
           <div className="pointer-events-none absolute top-0 right-0 w-72 h-72 bg-[#2563eb]/12 blur-[80px] rounded-full" />
           <div className="pointer-events-none absolute bottom-0 left-1/3 w-48 h-48 bg-[#7c3aed]/10 blur-[80px] rounded-full" />
           <div className="relative z-10">
-            <p className="text-white/40 text-sm mb-1">{greeting()},</p>
+            <p className="text-white/65 text-sm mb-1">{greeting()},</p>
             <h2 className="text-xl sm:text-2xl font-bold mb-1">{user.name}</h2>
-            <p className="text-white/40 text-sm">
+            <p className="text-white/65 text-sm">
               Welcome back to Design Hub India. Here&apos;s what&apos;s happening in 2026.
             </p>
             {isCore && (

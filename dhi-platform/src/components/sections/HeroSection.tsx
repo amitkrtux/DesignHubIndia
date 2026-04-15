@@ -47,7 +47,7 @@ export function HeroSection() {
           {/* Sub */}
           <motion.p
             variants={fadeUp}
-            className="text-base sm:text-lg text-white/45 max-w-lg leading-relaxed font-light"
+            className="text-base sm:text-lg text-white/75 max-w-lg leading-relaxed font-light"
           >
             Design Hub India connects 200+ designers across 9 global hubs —
             learning, building, and defining the future of enterprise design.
@@ -66,7 +66,7 @@ export function HeroSection() {
             </Link>
             <Link
               href="/#about"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 hover:border-white/30 text-white/60 hover:text-white text-sm font-medium rounded-full transition-all"
+              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 hover:border-white/60 text-white/85 hover:text-white text-sm font-medium rounded-full transition-all"
             >
               Learn More
             </Link>
@@ -84,7 +84,7 @@ export function HeroSection() {
         transition={{ delay: 1.4, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
       >
-        <span className="text-[9px] uppercase tracking-[0.25em] text-white/20">Scroll</span>
+        <span className="text-[9px] uppercase tracking-[0.25em] text-white/45">Scroll</span>
         <motion.div
           animate={{ y: [0, 7, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}

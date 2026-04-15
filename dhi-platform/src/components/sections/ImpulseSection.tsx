@@ -65,10 +65,10 @@ export function ImpulseSection() {
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-4">
             Impulse India 2026
           </h2>
-          <p className="text-xl sm:text-2xl font-light text-white/35 italic mb-6">
+          <p className="text-xl sm:text-2xl font-light text-white/70 italic mb-6">
             "Human Spark!"
           </p>
-          <p className="text-base text-white/45 max-w-2xl leading-relaxed">
+          <p className="text-base text-white/75 max-w-2xl leading-relaxed">
             India&apos;s largest internal SAP design festival returns — a multi-day
             celebration of craft, community, and the future of design. Four tracks,
             global speakers, and 200+ designers converging around one big idea:{" "}
@@ -92,7 +92,7 @@ export function ImpulseSection() {
               </span>
               <h3 className="text-xl font-bold text-white mb-1.5">{t.title}</h3>
               <p className="text-xs font-semibold mb-4" style={{ color: t.color }}>{t.tagline}</p>
-              <p className="text-sm text-white/35 leading-relaxed">{t.body}</p>
+              <p className="text-sm text-white/65 leading-relaxed">{t.body}</p>
             </motion.div>
           ))}
         </div>
@@ -106,11 +106,11 @@ export function ImpulseSection() {
           className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5"
         >
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/25">
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/50">
               Partners
             </span>
             {partners.map((p) => (
-              <span key={p} className="px-3.5 py-1.5 rounded-full border border-white/8 text-xs text-white/40 font-medium">
+              <span key={p} className="px-3.5 py-1.5 rounded-full border border-white/15 text-xs text-white/65 font-medium">
                 {p}
               </span>
             ))}
