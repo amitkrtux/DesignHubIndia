@@ -27,8 +27,8 @@ export function DashboardHeader() {
 
   const title = pageTitles[pathname] || "Dashboard"
 
-  function handleLogout() {
-    logout()
+  async function handleLogout() {
+    await logout()
     router.push("/")
   }
 

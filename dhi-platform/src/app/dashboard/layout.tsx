@@ -20,7 +20,11 @@ export default function DashboardLayout({
     }
   }, [user, router])
 
-  if (!user) return null
+  if (!user) return (
+    <div className="flex h-screen items-center justify-center bg-[#f8faff]">
+      <div className="w-6 h-6 border-2 border-[#2563eb] border-t-transparent rounded-full animate-spin" />
+    </div>
+  )
 
   return (
     <div className="flex h-[100dvh] bg-[#f8faff] overflow-hidden">

@@ -104,8 +104,7 @@ export default function AuthPage() {
 
                 <div className="mt-5 p-3 bg-[#f8faff] rounded-xl border border-[#e2e7f5]">
                   <p className="text-xs text-[#8896c4] text-center">
-                    <strong className="text-[#5567a3]">Demo accounts:</strong> lead@, core@, or member@designhubindia.com
-                    <br />Use any 6-digit OTP
+                    Use your <strong className="text-[#5567a3]">@sap.com</strong> work email to receive a sign-in code
                   </p>
                 </div>
               </motion.div>
