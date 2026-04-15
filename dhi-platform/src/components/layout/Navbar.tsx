@@ -17,9 +17,10 @@ const navLinks = [
   { label: "Plans",       href: "/#plans" },
 ]
 
+// Exact color the user confirmed works on dark backgrounds
+const DARK_TEXT = "oklab(0.999994 0.0000455678 0.0000200868 / 0.75)"
+
 export function Navbar() {
-  // true = navbar is over a dark section → white text
-  // false = navbar is over a light section → dark text
   const [darkBg, setDarkBg]         = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
@@ -27,7 +28,6 @@ export function Navbar() {
 
   useEffect(() => {
     const update = () => {
-      // Sample the element sitting just below the navbar bottom edge
       const el = document.elementFromPoint(window.innerWidth / 2, 65)
       const section = el?.closest("[data-theme]")
       setDarkBg(section?.getAttribute("data-theme") !== "light")
@@ -44,6 +44,9 @@ export function Navbar() {
   useEffect(() => { setMobileOpen(false) }, [pathname])
 
   if (pathname.startsWith("/dashboard")) return null
+
+  const darkTextStyle = darkBg ? { color: DARK_TEXT } : {}
+  const lightTextStyle = !darkBg ? {} : {}
 
   return (
     <>
@@ -72,11 +75,11 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  style={darkTextStyle}
                   className={cn(
-                    "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-150",
-                    darkBg
-                      ? "text-white font-semibold hover:text-white hover:bg-white/10"
-                      : "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]"
+                    "px-4 py-2 rounded-xl text-sm font-semibold transition-colors duration-150",
+                    !darkBg && "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]",
+                    darkBg && "hover:bg-white/10"
                   )}
                 >
                   {link.label}
@@ -97,11 +100,11 @@ export function Navbar() {
                 <>
                   <Link
                     href="/auth"
+                    style={darkTextStyle}
                     className={cn(
                       "px-4 py-2 text-sm font-semibold rounded-xl transition-colors",
-                      darkBg
-                        ? "text-white font-semibold hover:text-white hover:bg-white/10"
-                        : "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]"
+                      !darkBg && "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]",
+                      darkBg && "hover:bg-white/10"
                     )}
                   >
                     Sign in
@@ -119,11 +122,11 @@ export function Navbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen((v) => !v)}
+              style={darkTextStyle}
               className={cn(
                 "md:hidden flex items-center justify-center w-10 h-10 rounded-xl transition-colors",
-                darkBg
-                  ? "text-white hover:bg-white/10"
-                  : "text-[#2d3a6b] hover:bg-[#f0f3ff]"
+                !darkBg && "text-[#2d3a6b] hover:bg-[#f0f3ff]",
+                darkBg && "hover:bg-white/10"
               )}
               aria-label="Toggle menu"
             >
