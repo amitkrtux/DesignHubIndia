@@ -26,32 +26,19 @@ export function Navbar() {
   const { user } = useAuthStore()
 
   useEffect(() => {
-    const NAVBAR_H = 64 // px — matches h-16
-
-    // Use IntersectionObserver with a thin horizontal slice at the navbar bottom
-    // rootMargin: top offset pushes the root inward by navbar height so the
-    // trigger fires exactly when a section reaches the navbar bottom edge.
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the entry that is currently intersecting (entering from top)
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const theme = entry.target.getAttribute("data-theme")
-            setDarkBg(theme === "dark")
-          }
-        }
-      },
-      {
-        // A thin band at the very top of the viewport, just below the navbar
-        rootMargin: `-${NAVBAR_H}px 0px -${window.innerHeight - NAVBAR_H - 1}px 0px`,
-        threshold: 0,
-      }
-    )
-
-    const sections = document.querySelectorAll("[data-theme]")
-    sections.forEach((s) => observer.observe(s))
-
-    return () => observer.disconnect()
+    const update = () => {
+      // Sample the element sitting just below the navbar bottom edge
+      const el = document.elementFromPoint(window.innerWidth / 2, 65)
+      const section = el?.closest("[data-theme]")
+      setDarkBg(section?.getAttribute("data-theme") !== "light")
+    }
+    update()
+    window.addEventListener("scroll", update, { passive: true })
+    window.addEventListener("resize", update, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", update)
+      window.removeEventListener("resize", update)
+    }
   }, [pathname])
 
   useEffect(() => { setMobileOpen(false) }, [pathname])
