@@ -54,7 +54,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
           darkBg
-            ? "bg-[#080d25]/80 backdrop-blur-lg border-b border-white/5"
+            ? "bg-[#060b1e] border-b border-white/10"
             : "bg-white shadow-sm shadow-black/5 border-b border-[#e2e7f5]"
         )}
       >
@@ -75,7 +75,7 @@ export function Navbar() {
                   className={cn(
                     "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-150",
                     darkBg
-                      ? "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "text-white font-semibold hover:text-white hover:bg-white/10"
                       : "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]"
                   )}
                 >
@@ -100,7 +100,7 @@ export function Navbar() {
                     className={cn(
                       "px-4 py-2 text-sm font-semibold rounded-xl transition-colors",
                       darkBg
-                        ? "text-white/90 hover:text-white hover:bg-white/10"
+                        ? "text-white font-semibold hover:text-white hover:bg-white/10"
                         : "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]"
                     )}
                   >
