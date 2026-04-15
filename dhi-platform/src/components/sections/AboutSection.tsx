@@ -18,7 +18,7 @@ const globalHubs = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="bg-white py-24 sm:py-28 lg:py-32">
+    <section id="about" data-theme="light" className="bg-white py-24 sm:py-28 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-start">
 
@@ -35,13 +35,13 @@ export function AboutSection() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#121840] leading-[1.15] mb-6">
               One community,<br />nine global hubs
             </h2>
-            <p className="text-base text-[#5567a3] leading-relaxed mb-5">
+            <p className="text-base text-[#374375] leading-relaxed mb-5">
               Design Hub India (DHI) is the India chapter of the global SAP Design
               Community — representing the entire nation within a worldwide network
               of 9 hubs. Founded in 2023, DHI is the voice of India&apos;s SAP
               designers on the global stage.
             </p>
-            <p className="text-base text-[#5567a3] leading-relaxed mb-10">
+            <p className="text-base text-[#374375] leading-relaxed mb-10">
               We run flagship events, workshops, mentorship programs, and a monthly
               newsletter — keeping 200+ SAP designers connected, inspired, and globally visible.
             </p>
@@ -54,7 +54,7 @@ export function AboutSection() {
               </Link>
               <div>
                 <p className="text-sm font-bold text-[#121840]">Amit Kumar Tiwari</p>
-                <p className="text-xs text-[#8896c4] mt-0.5">Hub Lead, Design Hub India</p>
+                <p className="text-xs text-[#5567a3] mt-0.5">Hub Lead, Design Hub India</p>
               </div>
             </div>
           </motion.div>
@@ -67,7 +67,7 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.12 }}
           >
             <div className="rounded-2xl border border-[#e2e7f5] bg-[#f8faff] p-6 sm:p-8">
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#8896c4] mb-5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#5567a3] mb-5">
                 Global Hub Network
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2">
@@ -89,7 +89,7 @@ export function AboutSection() {
                       <p className={`text-sm font-semibold truncate ${hub.active ? "text-[#2563eb]" : "text-[#1e2856]"}`}>
                         {hub.city}
                       </p>
-                      <p className="text-[11px] text-[#8896c4] truncate">{hub.role}</p>
+                      <p className="text-[11px] text-[#5567a3] truncate">{hub.role}</p>
                     </div>
                     {hub.active && (
                       <span className="flex-shrink-0 text-[9px] font-bold uppercase tracking-wide bg-[#eff6ff] text-[#2563eb] px-2 py-0.5 rounded-full">

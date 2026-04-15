@@ -50,7 +50,7 @@ const articles = [
 
 export function ArticlesSection() {
   return (
-    <section id="articles" className="bg-[#f8faff] py-24 sm:py-28 lg:py-32">
+    <section id="articles" data-theme="light" className="bg-[#f8faff] py-24 sm:py-28 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
@@ -71,7 +71,7 @@ export function ArticlesSection() {
           </div>
           <Link
             href="/articles"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#5567a3] hover:text-[#2563eb] transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#374375] hover:text-[#2563eb] transition-colors flex-shrink-0"
           >
             Read all <ArrowRight size={14} />
           </Link>
@@ -94,11 +94,11 @@ export function ArticlesSection() {
               <div className="p-5 sm:p-6 flex flex-col gap-3 flex-1">
                 {/* Meta */}
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-xs font-semibold text-[#8896c4]">
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-[#5567a3]">
                     {a.type === "newsletter" ? <Rss size={11} /> : <FileText size={11} />}
                     {a.type === "newsletter" ? "Newsletter" : "Article"}
                   </span>
-                  <span className="flex items-center gap-1 text-xs text-[#8896c4]">
+                  <span className="flex items-center gap-1 text-xs text-[#5567a3]">
                     <Clock size={10} /> {a.readTime}
                   </span>
                 </div>
@@ -106,16 +106,16 @@ export function ArticlesSection() {
                 <h3 className="text-sm font-bold text-[#121840] leading-snug line-clamp-2 group-hover:text-[#2563eb] transition-colors">
                   {a.title}
                 </h3>
-                <p className="text-xs text-[#5567a3] leading-relaxed line-clamp-3 flex-1">
+                <p className="text-xs text-[#374375] leading-relaxed line-clamp-3 flex-1">
                   {a.excerpt}
                 </p>
 
                 <div className="flex items-center justify-between pt-3 border-t border-[#e2e7f5]">
                   <div>
                     <p className="text-xs font-bold text-[#1e2856]">{a.author}</p>
-                    <p className="text-xs text-[#8896c4] mt-0.5">{formatDate(a.publishedAt)}</p>
+                    <p className="text-xs text-[#5567a3] mt-0.5">{formatDate(a.publishedAt)}</p>
                   </div>
-                  <ArrowRight size={13} className="text-[#c4cde8] group-hover:text-[#2563eb] transition-colors flex-shrink-0" />
+                  <ArrowRight size={13} className="text-[#8896c4] group-hover:text-[#2563eb] transition-colors flex-shrink-0" />
                 </div>
               </div>
             </motion.div>

@@ -39,7 +39,7 @@ const partners = ["DesignUp", "ADPList", "Frog", "MIT Media Lab", "IDEO"]
 
 export function ImpulseSection() {
   return (
-    <section id="impulse" className="relative bg-[#080d25] py-24 sm:py-28 lg:py-32 overflow-hidden">
+    <section id="impulse" data-theme="dark" className="relative bg-[#080d25] py-24 sm:py-28 lg:py-32 overflow-hidden">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[280px] rounded-full bg-[#7c3aed]/10 blur-[120px]" />
       </div>

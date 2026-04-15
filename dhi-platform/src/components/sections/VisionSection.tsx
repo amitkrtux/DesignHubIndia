@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export function VisionSection() {
   return (
-    <section className="bg-[#080d25] py-24 sm:py-28 lg:py-32 overflow-hidden">
+    <section data-theme="dark" className="bg-[#080d25] py-24 sm:py-28 lg:py-32 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 

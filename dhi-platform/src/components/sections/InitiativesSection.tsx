@@ -43,7 +43,7 @@ const initiatives = [
 
 export function InitiativesSection() {
   return (
-    <section id="initiatives" className="bg-white py-24 sm:py-28 lg:py-32">
+    <section id="initiatives" data-theme="light" className="bg-white py-24 sm:py-28 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
@@ -74,7 +74,7 @@ export function InitiativesSection() {
               className="group p-8 sm:p-10 rounded-2xl border border-[#e2e7f5] bg-white hover:border-transparent hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-6">
-                <span className="text-[10px] font-mono text-[#c4cde8] uppercase tracking-widest">
+                <span className="text-[10px] font-mono text-[#8896c4] uppercase tracking-widest">
                   {item.num}
                 </span>
                 <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${item.pill}`}>
@@ -84,7 +84,7 @@ export function InitiativesSection() {
               <h3 className="text-lg sm:text-xl font-bold text-[#121840] mb-3 leading-snug">
                 {item.title}
               </h3>
-              <p className="text-sm text-[#5567a3] leading-relaxed mb-8">
+              <p className="text-sm text-[#374375] leading-relaxed mb-8">
                 {item.body}
               </p>
               <p className="text-sm font-bold" style={{ color: item.color }}>

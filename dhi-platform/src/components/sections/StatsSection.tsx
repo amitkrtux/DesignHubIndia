@@ -11,7 +11,7 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="bg-[#080d25]">
+    <section data-theme="dark" className="bg-[#080d25]">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pb-24">
         <div className="grid grid-cols-2 md:grid-cols-4 border border-white/8 rounded-2xl overflow-hidden divide-x divide-white/8">
           {stats.map((s, i) => (

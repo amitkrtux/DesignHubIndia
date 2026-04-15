@@ -18,16 +18,41 @@ const navLinks = [
 ]
 
 export function Navbar() {
-  const [scrolled, setScrolled]     = useState(false)
+  // true = navbar is over a dark section → white text
+  // false = navbar is over a light section → dark text
+  const [darkBg, setDarkBg]         = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const pathname   = usePathname()
-  const { user }   = useAuthStore()
+  const pathname = usePathname()
+  const { user } = useAuthStore()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32)
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    const NAVBAR_H = 64 // px — matches h-16
+
+    // Use IntersectionObserver with a thin horizontal slice at the navbar bottom
+    // rootMargin: top offset pushes the root inward by navbar height so the
+    // trigger fires exactly when a section reaches the navbar bottom edge.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the entry that is currently intersecting (entering from top)
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const theme = entry.target.getAttribute("data-theme")
+            setDarkBg(theme === "dark")
+          }
+        }
+      },
+      {
+        // A thin band at the very top of the viewport, just below the navbar
+        rootMargin: `-${NAVBAR_H}px 0px -${window.innerHeight - NAVBAR_H - 1}px 0px`,
+        threshold: 0,
+      }
+    )
+
+    const sections = document.querySelectorAll("[data-theme]")
+    sections.forEach((s) => observer.observe(s))
+
+    return () => observer.disconnect()
+  }, [pathname])
 
   useEffect(() => { setMobileOpen(false) }, [pathname])
 
@@ -41,30 +66,30 @@ export function Navbar() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-white/96 backdrop-blur-xl border-b border-[#e2e7f5] shadow-sm"
-            : "bg-[#080d25]/70 backdrop-blur-md"
+          darkBg
+            ? "bg-[#080d25]/80 backdrop-blur-lg border-b border-white/5"
+            : "bg-white shadow-sm shadow-black/5 border-b border-[#e2e7f5]"
         )}
       >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-16 sm:h-18 gap-4">
+          <div className="flex items-center justify-between h-16 gap-4">
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
-              <DHIWordmark bg={scrolled ? "light" : "dark"} size="md" />
+              <DHIWordmark bg={darkBg ? "dark" : "light"} size="md" />
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-0.5">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-4 py-2 rounded-xl text-sm font-medium transition-all duration-150",
-                    scrolled
-                      ? "text-[#5567a3] hover:text-[#121840] hover:bg-[#f0f3ff]"
-                      : "text-white hover:text-white/80 hover:bg-white/10"
+                    "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-150",
+                    darkBg
+                      ? "text-white/90 hover:text-white hover:bg-white/10"
+                      : "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]"
                   )}
                 >
                   {link.label}
@@ -86,8 +111,10 @@ export function Navbar() {
                   <Link
                     href="/auth"
                     className={cn(
-                      "px-4 py-2 text-sm font-medium rounded-xl transition-colors",
-                      scrolled ? "text-[#5567a3] hover:text-[#121840] hover:bg-[#f0f3ff]" : "text-white hover:text-white/80 hover:bg-white/10"
+                      "px-4 py-2 text-sm font-semibold rounded-xl transition-colors",
+                      darkBg
+                        ? "text-white/90 hover:text-white hover:bg-white/10"
+                        : "text-[#2d3a6b] hover:text-[#121840] hover:bg-[#f0f3ff]"
                     )}
                   >
                     Sign in
@@ -107,7 +134,9 @@ export function Navbar() {
               onClick={() => setMobileOpen((v) => !v)}
               className={cn(
                 "md:hidden flex items-center justify-center w-10 h-10 rounded-xl transition-colors",
-                scrolled ? "text-[#2d3a6b] hover:bg-[#f0f3ff]" : "text-white hover:bg-white/10"
+                darkBg
+                  ? "text-white hover:bg-white/10"
+                  : "text-[#2d3a6b] hover:bg-[#f0f3ff]"
               )}
               aria-label="Toggle menu"
             >
@@ -132,7 +161,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-3 rounded-xl text-sm font-medium text-[#2d3a6b] hover:bg-[#f0f3ff] hover:text-[#2563eb] transition-colors"
+                  className="px-4 py-3 rounded-xl text-sm font-semibold text-[#2d3a6b] hover:bg-[#f0f3ff] hover:text-[#2563eb] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -145,7 +174,7 @@ export function Navbar() {
                 </Link>
               ) : (
                 <>
-                  <Link href="/auth" className="flex items-center justify-center py-3 text-sm font-medium rounded-xl border border-[#e2e7f5] text-[#2563eb]">
+                  <Link href="/auth" className="flex items-center justify-center py-3 text-sm font-semibold rounded-xl border border-[#e2e7f5] text-[#2563eb]">
                     Sign in
                   </Link>
                   <Link href="/auth" className="flex items-center justify-center py-3 text-sm font-bold rounded-xl bg-[#2563eb] text-white">

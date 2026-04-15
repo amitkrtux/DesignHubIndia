@@ -46,7 +46,7 @@ const typeIcon = {
 
 export function EventsSection() {
   return (
-    <section id="events" className="bg-[#f8faff] py-24 sm:py-28 lg:py-32">
+    <section id="events" data-theme="light" className="bg-[#f8faff] py-24 sm:py-28 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
@@ -67,7 +67,7 @@ export function EventsSection() {
           </div>
           <Link
             href="/events"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#5567a3] hover:text-[#2563eb] transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#374375] hover:text-[#2563eb] transition-colors flex-shrink-0"
           >
             View all <ArrowRight size={14} />
           </Link>
@@ -88,10 +88,10 @@ export function EventsSection() {
               >
                 {/* Meta */}
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-xs font-semibold text-[#5567a3]">
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-[#374375]">
                     <Icon size={12} className="text-[#2563eb]" /> {label}
                   </span>
-                  <span className="flex items-center gap-1.5 text-xs text-[#8896c4]">
+                  <span className="flex items-center gap-1.5 text-xs text-[#5567a3]">
                     <Calendar size={11} /> {formatShortDate(event.date)}
                   </span>
                 </div>
@@ -99,11 +99,11 @@ export function EventsSection() {
                 <h3 className="text-base font-bold text-[#121840] leading-snug group-hover:text-[#2563eb] transition-colors">
                   {event.title}
                 </h3>
-                <p className="text-sm text-[#5567a3] leading-relaxed line-clamp-2 flex-1">
+                <p className="text-sm text-[#374375] leading-relaxed line-clamp-2 flex-1">
                   {event.description}
                 </p>
 
-                <div className="flex items-center gap-1.5 text-xs text-[#8896c4]">
+                <div className="flex items-center gap-1.5 text-xs text-[#5567a3]">
                   <MapPin size={11} /> {event.location}
                 </div>
 
@@ -115,7 +115,7 @@ export function EventsSection() {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs text-[#8896c4] pt-3 border-t border-[#e2e7f5]">
+                <div className="flex items-center gap-1.5 text-xs text-[#5567a3] pt-3 border-t border-[#e2e7f5]">
                   <Users size={11} /> {event.rsvpCount} attended
                 </div>
               </motion.div>

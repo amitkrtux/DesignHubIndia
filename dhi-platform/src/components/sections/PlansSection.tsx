@@ -13,7 +13,7 @@ const plans = [
 
 export function PlansSection() {
   return (
-    <section id="plans" className="bg-white py-24 sm:py-28 lg:py-32">
+    <section id="plans" data-theme="light" className="bg-white py-24 sm:py-28 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
@@ -60,7 +60,7 @@ export function PlansSection() {
               <h3 className={`text-base sm:text-[17px] font-bold mb-2 leading-snug ${p.flagship ? "text-[#92400e]" : "text-[#121840]"}`}>
                 {p.theme}
               </h3>
-              <p className={`text-sm leading-relaxed ${p.flagship ? "text-[#b45309]" : "text-[#5567a3]"}`}>
+              <p className={`text-sm leading-relaxed ${p.flagship ? "text-[#b45309]" : "text-[#374375]"}`}>
                 {p.detail}
               </p>
             </motion.div>

@@ -12,7 +12,7 @@ const fadeUp = {
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#080d25]">
+    <section data-theme="dark" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#080d25]">
 
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0">
