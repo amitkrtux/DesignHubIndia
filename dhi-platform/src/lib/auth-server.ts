@@ -100,6 +100,7 @@ export function resolveRole(email: string): UserRole {
   if (lower === "lead@designhubindia.com") return "hub_lead"
   if (lower === "core@designhubindia.com") return "core_member"
   if (lower === "sapdesignhubindia@gmail.com") return "hub_lead"
+  if (lower === "amit.tiwari03@sap.com") return "hub_lead"
   return "member"
 }
 
@@ -108,6 +109,7 @@ export function resolveName(email: string): string {
     "lead@designhubindia.com": "Aakash Sharma",
     "core@designhubindia.com": "Priya Nair",
     "sapdesignhubindia@gmail.com": "Design Hub India",
+    "amit.tiwari03@sap.com": "Amit Kumar Tiwari",
   }
   return known[email.toLowerCase()] ?? email.split("@")[0].replace(/\./g, " ")
 }
