@@ -81,7 +81,11 @@ export async function hashOtp(otp: string): Promise<string> {
 
 // ─── Email restriction ────────────────────────────────────────────────────────
 
-const ALLOWED_SPECIAL = ["lead@designhubindia.com", "core@designhubindia.com"]
+const ALLOWED_SPECIAL = [
+  "lead@designhubindia.com",
+  "core@designhubindia.com",
+  "sapdesignhubindia@gmail.com",
+]
 
 export function isAllowedEmail(email: string): boolean {
   const lower = email.toLowerCase()
@@ -95,6 +99,7 @@ export function resolveRole(email: string): UserRole {
   const lower = email.toLowerCase()
   if (lower === "lead@designhubindia.com") return "hub_lead"
   if (lower === "core@designhubindia.com") return "core_member"
+  if (lower === "sapdesignhubindia@gmail.com") return "hub_lead"
   return "member"
 }
 
@@ -102,6 +107,7 @@ export function resolveName(email: string): string {
   const known: Record<string, string> = {
     "lead@designhubindia.com": "Aakash Sharma",
     "core@designhubindia.com": "Priya Nair",
+    "sapdesignhubindia@gmail.com": "Design Hub India",
   }
   return known[email.toLowerCase()] ?? email.split("@")[0].replace(/\./g, " ")
 }
