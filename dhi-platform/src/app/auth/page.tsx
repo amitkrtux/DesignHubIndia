@@ -26,8 +26,8 @@ export default function AuthPage() {
     try {
       await login(email.trim())
       setStep("otp")
-    } catch {
-      setError("Failed to send OTP. Please try again.")
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send sign-in code. Please try again.")
     }
   }
 
@@ -37,8 +37,8 @@ export default function AuthPage() {
     try {
       await verifyOtp(email.trim(), otp.trim())
       router.push("/dashboard")
-    } catch {
-      setError("Invalid OTP. Please try again.")
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Verification failed. Please try again.")
     }
   }
 
